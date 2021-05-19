@@ -7,6 +7,7 @@
     "start": "bsb -make-world -w",
     "clean": "bsb -clean-world",
     "test": "bsb -make-world && jest",
+    "examples": "npm run build && node examples/examples.bs.js",
     "watch:jest": "jest --watchAll"
   },
   "homepage": "https://github.com/glennsl/refetch#readme",
@@ -32,9 +33,11 @@
     "@glennsl/bs-jest": "^0.7.0",
     "@glennsl/bs-json": "^5.0.2",
     "bs-platform": "^9.0.2",
+    "console-png": "^1.2.1",
     "debug-http": "^1.1.0",
     "isomorphic-fetch": "^3.0.0",
-    "nock": "^13.0.11"
+    "nock": "^13.0.11",
+    "stream-to-buffer": "^0.1.0"
   },
   "peerDependencies": {
     "bs-platform": "^9.0.2"
