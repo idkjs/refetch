@@ -1,7 +1,6 @@
 'use strict';
 
 var Get = require("./get.bs.js");
-var Png = require("./png.bs.js");
 var Post = require("./post.bs.js");
 var Test = require("./test.bs.js");
 var Retry = require("./retry.bs.js");
