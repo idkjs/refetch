@@ -3,365 +3,314 @@
 var Pervasives = require("bs-platform/lib/js/pervasives.js");
 
 function codeToInt(param) {
-  if (typeof param === "number") {
-    if (param >= -214822874) {
-      if (param >= 240875818) {
-        if (param >= 611365435) {
-          if (param >= 834799099) {
-            if (param >= 923446495) {
-              if (param >= 1047445569) {
-                return 226;
-              } else {
-                return 502;
-              }
-            } else if (param >= 876444641) {
-              return 506;
-            } else {
-              return 426;
-            }
-          } else if (param !== 765829369) {
-            if (param >= 792903807) {
-              return 410;
-            } else {
-              return 503;
-            }
-          } else {
-            return 417;
-          }
-        } else if (param >= 484044636) {
-          if (param >= 566851975) {
-            if (param >= 571975273) {
-              return 415;
-            } else {
-              return 202;
-            }
-          } else if (param >= 493432085) {
-            return 412;
-          } else {
-            return 431;
-          }
-        } else if (param >= 324098644) {
-          return 401;
-        } else {
-          return 423;
-        }
-      } else if (param >= 17692) {
-        if (param >= 61697368) {
-          if (param >= 230055709) {
-            if (param >= 237675874) {
-              return 418;
-            } else {
-              return 504;
-            }
-          } else if (param >= 95496968) {
-            return 424;
-          } else {
-            return 507;
-          }
-        } else if (param >= 43187863) {
-          return 429;
-        } else {
-          return 200;
-        }
-      } else if (param >= -113889576) {
-        if (param >= -57405646) {
-          if (param >= -36288910) {
-            return 409;
-          } else {
-            return 408;
-          }
-        } else if (param >= -68461033) {
-          return 416;
-        } else {
-          return 204;
-        }
-      } else if (param >= -201667380) {
-        return 510;
-      } else {
-        return 508;
-      }
-    } else if (param >= -622680555) {
-      if (param >= -457736521) {
-        if (param >= -438114087) {
-          if (param >= -365540310) {
-            if (param >= -296251313) {
-              return 404;
-            } else {
-              return 400;
-            }
-          } else if (param >= -418805899) {
-            return 406;
-          } else {
-            return 403;
-          }
-        } else if (param >= -449270550) {
-          return 203;
-        } else {
-          return 428;
-        }
-      } else if (param >= -555940656) {
-        if (param >= -503105947) {
-          if (param >= -493013592) {
-            return 500;
-          } else {
-            return 402;
-          }
-        } else if (param >= -526477244) {
-          return 414;
-        } else {
-          return 421;
-        }
-      } else if (param >= -558113336) {
-        return 201;
-      } else {
-        return 413;
-      }
-    } else if (param >= -781201777) {
-      if (param >= -748150966) {
-        if (param >= -720432155) {
-          if (param >= -696181141) {
-            return 207;
-          } else {
-            return 407;
-          }
-        } else if (param >= -731098587) {
-          return 511;
-        } else {
-          return 205;
-        }
-      } else if (param >= -771826261) {
-        return 208;
-      } else {
-        return 501;
-      }
-    } else if (param >= -973855501) {
-      if (param >= -879960241) {
-        if (param >= -856874229) {
-          return 505;
-        } else {
-          return 451;
-        }
-      } else if (param >= -905327483) {
-        return 411;
-      } else {
-        return 422;
-      }
-    } else if (param >= -988253514) {
+  if (typeof param === "string") {
+    if (param === "MethodNotAllowed") {
       return 405;
+    } else if (param === "UnprocessableEntity") {
+      return 422;
+    } else if (param === "LengthRequired") {
+      return 411;
+    } else if (param === "UnavailableForLegalReasons") {
+      return 451;
+    } else if (param === "HttpVersionNotSupported") {
+      return 505;
+    } else if (param === "NotImplemented") {
+      return 501;
+    } else if (param === "AlreadyReported") {
+      return 208;
+    } else if (param === "ResetContent") {
+      return 205;
+    } else if (param === "NetworkAuthenticationRequired") {
+      return 511;
+    } else if (param === "ProxyAuthenticationRequired") {
+      return 407;
+    } else if (param === "MultiStatus") {
+      return 207;
+    } else if (param === "PayloadTooLarge") {
+      return 413;
+    } else if (param === "Created") {
+      return 201;
+    } else if (param === "MisdirectedRequest") {
+      return 421;
+    } else if (param === "UriTooLong") {
+      return 414;
+    } else if (param === "PaymentRequired") {
+      return 402;
+    } else if (param === "InternalServerError") {
+      return 500;
+    } else if (param === "PreconditionRequired") {
+      return 428;
+    } else if (param === "NonAuthoritativeInformation") {
+      return 203;
+    } else if (param === "Forbidden") {
+      return 403;
+    } else if (param === "NotAcceptable") {
+      return 406;
+    } else if (param === "BadRequest") {
+      return 400;
+    } else if (param === "NotFound") {
+      return 404;
+    } else if (param === "LoopDetected") {
+      return 508;
+    } else if (param === "NotExtended") {
+      return 510;
+    } else if (param === "NoContent") {
+      return 204;
+    } else if (param === "RangeNotSatisfiable") {
+      return 416;
+    } else if (param === "RequestTimeout") {
+      return 408;
+    } else if (param === "Conflict") {
+      return 409;
+    } else if (param === "OK") {
+      return 200;
+    } else if (param === "TooManyRequests") {
+      return 429;
+    } else if (param === "InsufficientStorage") {
+      return 507;
+    } else if (param === "FailedDependency") {
+      return 424;
+    } else if (param === "GatewayTimeout") {
+      return 504;
+    } else if (param === "ImATeapot") {
+      return 418;
+    } else if (param === "Locked") {
+      return 423;
+    } else if (param === "Unauthorized") {
+      return 401;
+    } else if (param === "RequestHeaderFieldsTooLarge") {
+      return 431;
+    } else if (param === "PreconditionFailed") {
+      return 412;
+    } else if (param === "Accepted") {
+      return 202;
+    } else if (param === "UnsupportedMediaType") {
+      return 415;
+    } else if (param === "ServiceUnavailable") {
+      return 503;
+    } else if (param === "ExpectationFailed") {
+      return 417;
+    } else if (param === "Gone") {
+      return 410;
+    } else if (param === "UpgradeRequired") {
+      return 426;
+    } else if (param === "VariantAlsoNegotiates") {
+      return 506;
+    } else if (param === "BadGateway") {
+      return 502;
+    } else if (param === "IMUsed") {
+      return 226;
     } else {
       return 206;
     }
   } else {
-    return param[1];
+    return param.VAL;
   }
 }
 
 function codeFromInt(param) {
   if (param >= 227) {
-    var switcher = param - 400 | 0;
-    if (switcher > 111 || switcher < 0) {
-      return Pervasives.failwith("TODO: exception or option?");
-    } else {
-      switch (switcher) {
-        case 0 : 
-            return /* BadRequest */-365540310;
-        case 1 : 
-            return /* Unauthorized */324098644;
-        case 2 : 
-            return /* PaymentRequired */-503105947;
-        case 3 : 
-            return /* Forbidden */-438114087;
-        case 4 : 
-            return /* NotFound */-296251313;
-        case 5 : 
-            return /* MethodNotAllowed */-988253514;
-        case 6 : 
-            return /* NotAcceptable */-418805899;
-        case 7 : 
-            return /* ProxyAuthenticationRequired */-720432155;
-        case 8 : 
-            return /* RequestTimeout */-57405646;
-        case 9 : 
-            return /* Conflict */-36288910;
-        case 10 : 
-            return /* Gone */792903807;
-        case 11 : 
-            return /* LengthRequired */-905327483;
-        case 12 : 
-            return /* PreconditionFailed */493432085;
-        case 13 : 
-            return /* PayloadTooLarge */-622680555;
-        case 14 : 
-            return /* UriTooLong */-526477244;
-        case 15 : 
-            return /* UnsupportedMediaType */571975273;
-        case 16 : 
-            return /* RangeNotSatisfiable */-68461033;
-        case 17 : 
-            return /* ExpectationFailed */765829369;
-        case 18 : 
-            return /* ImATeapot */237675874;
-        case 21 : 
-            return /* MisdirectedRequest */-555940656;
-        case 22 : 
-            return /* UnprocessableEntity */-973855501;
-        case 23 : 
-            return /* Locked */240875818;
-        case 24 : 
-            return /* FailedDependency */95496968;
-        case 26 : 
-            return /* UpgradeRequired */834799099;
-        case 28 : 
-            return /* PreconditionRequired */-457736521;
-        case 29 : 
-            return /* TooManyRequests */43187863;
-        case 31 : 
-            return /* RequestHeaderFieldsTooLarge */484044636;
-        case 51 : 
-            return /* UnavailableForLegalReasons */-879960241;
-        case 100 : 
-            return /* InternalServerError */-493013592;
-        case 101 : 
-            return /* NotImplemented */-781201777;
-        case 102 : 
-            return /* BadGateway */923446495;
-        case 103 : 
-            return /* ServiceUnavailable */611365435;
-        case 104 : 
-            return /* GatewayTimeout */230055709;
-        case 105 : 
-            return /* HttpVersionNotSupported */-856874229;
-        case 106 : 
-            return /* VariantAlsoNegotiates */876444641;
-        case 107 : 
-            return /* InsufficientStorage */61697368;
-        case 108 : 
-            return /* LoopDetected */-214822874;
-        case 19 : 
-        case 20 : 
-        case 25 : 
-        case 27 : 
-        case 30 : 
-        case 32 : 
-        case 33 : 
-        case 34 : 
-        case 35 : 
-        case 36 : 
-        case 37 : 
-        case 38 : 
-        case 39 : 
-        case 40 : 
-        case 41 : 
-        case 42 : 
-        case 43 : 
-        case 44 : 
-        case 45 : 
-        case 46 : 
-        case 47 : 
-        case 48 : 
-        case 49 : 
-        case 50 : 
-        case 52 : 
-        case 53 : 
-        case 54 : 
-        case 55 : 
-        case 56 : 
-        case 57 : 
-        case 58 : 
-        case 59 : 
-        case 60 : 
-        case 61 : 
-        case 62 : 
-        case 63 : 
-        case 64 : 
-        case 65 : 
-        case 66 : 
-        case 67 : 
-        case 68 : 
-        case 69 : 
-        case 70 : 
-        case 71 : 
-        case 72 : 
-        case 73 : 
-        case 74 : 
-        case 75 : 
-        case 76 : 
-        case 77 : 
-        case 78 : 
-        case 79 : 
-        case 80 : 
-        case 81 : 
-        case 82 : 
-        case 83 : 
-        case 84 : 
-        case 85 : 
-        case 86 : 
-        case 87 : 
-        case 88 : 
-        case 89 : 
-        case 90 : 
-        case 91 : 
-        case 92 : 
-        case 93 : 
-        case 94 : 
-        case 95 : 
-        case 96 : 
-        case 97 : 
-        case 98 : 
-        case 99 : 
-        case 109 : 
-            return Pervasives.failwith("TODO: exception or option?");
-        case 110 : 
-            return /* NotExtended */-201667380;
-        case 111 : 
-            return /* NetworkAuthenticationRequired */-731098587;
-        
-      }
-    }
-  } else if (param >= 200) {
-    switch (param - 200 | 0) {
-      case 0 : 
-          return /* OK */17692;
-      case 1 : 
-          return /* Created */-558113336;
-      case 2 : 
-          return /* Accepted */566851975;
-      case 3 : 
-          return /* NonAuthoritativeInformation */-449270550;
-      case 4 : 
-          return /* NoContent */-113889576;
-      case 5 : 
-          return /* ResetContent */-748150966;
-      case 6 : 
-          return /* PartialContent */-1003105320;
-      case 7 : 
-          return /* MultiStatus */-696181141;
-      case 8 : 
-          return /* AlreadyReported */-771826261;
-      case 9 : 
-      case 10 : 
-      case 11 : 
-      case 12 : 
-      case 13 : 
-      case 14 : 
-      case 15 : 
-      case 16 : 
-      case 17 : 
-      case 18 : 
-      case 19 : 
-      case 20 : 
-      case 21 : 
-      case 22 : 
-      case 23 : 
-      case 24 : 
-      case 25 : 
+    switch (param) {
+      case 400 :
+          return "BadRequest";
+      case 401 :
+          return "Unauthorized";
+      case 402 :
+          return "PaymentRequired";
+      case 403 :
+          return "Forbidden";
+      case 404 :
+          return "NotFound";
+      case 405 :
+          return "MethodNotAllowed";
+      case 406 :
+          return "NotAcceptable";
+      case 407 :
+          return "ProxyAuthenticationRequired";
+      case 408 :
+          return "RequestTimeout";
+      case 409 :
+          return "Conflict";
+      case 410 :
+          return "Gone";
+      case 411 :
+          return "LengthRequired";
+      case 412 :
+          return "PreconditionFailed";
+      case 413 :
+          return "PayloadTooLarge";
+      case 414 :
+          return "UriTooLong";
+      case 415 :
+          return "UnsupportedMediaType";
+      case 416 :
+          return "RangeNotSatisfiable";
+      case 417 :
+          return "ExpectationFailed";
+      case 418 :
+          return "ImATeapot";
+      case 421 :
+          return "MisdirectedRequest";
+      case 422 :
+          return "UnprocessableEntity";
+      case 423 :
+          return "Locked";
+      case 424 :
+          return "FailedDependency";
+      case 426 :
+          return "UpgradeRequired";
+      case 428 :
+          return "PreconditionRequired";
+      case 429 :
+          return "TooManyRequests";
+      case 431 :
+          return "RequestHeaderFieldsTooLarge";
+      case 451 :
+          return "UnavailableForLegalReasons";
+      case 500 :
+          return "InternalServerError";
+      case 501 :
+          return "NotImplemented";
+      case 502 :
+          return "BadGateway";
+      case 503 :
+          return "ServiceUnavailable";
+      case 504 :
+          return "GatewayTimeout";
+      case 505 :
+          return "HttpVersionNotSupported";
+      case 506 :
+          return "VariantAlsoNegotiates";
+      case 507 :
+          return "InsufficientStorage";
+      case 508 :
+          return "LoopDetected";
+      case 419 :
+      case 420 :
+      case 425 :
+      case 427 :
+      case 430 :
+      case 432 :
+      case 433 :
+      case 434 :
+      case 435 :
+      case 436 :
+      case 437 :
+      case 438 :
+      case 439 :
+      case 440 :
+      case 441 :
+      case 442 :
+      case 443 :
+      case 444 :
+      case 445 :
+      case 446 :
+      case 447 :
+      case 448 :
+      case 449 :
+      case 450 :
+      case 452 :
+      case 453 :
+      case 454 :
+      case 455 :
+      case 456 :
+      case 457 :
+      case 458 :
+      case 459 :
+      case 460 :
+      case 461 :
+      case 462 :
+      case 463 :
+      case 464 :
+      case 465 :
+      case 466 :
+      case 467 :
+      case 468 :
+      case 469 :
+      case 470 :
+      case 471 :
+      case 472 :
+      case 473 :
+      case 474 :
+      case 475 :
+      case 476 :
+      case 477 :
+      case 478 :
+      case 479 :
+      case 480 :
+      case 481 :
+      case 482 :
+      case 483 :
+      case 484 :
+      case 485 :
+      case 486 :
+      case 487 :
+      case 488 :
+      case 489 :
+      case 490 :
+      case 491 :
+      case 492 :
+      case 493 :
+      case 494 :
+      case 495 :
+      case 496 :
+      case 497 :
+      case 498 :
+      case 499 :
+      case 509 :
           return Pervasives.failwith("TODO: exception or option?");
-      case 26 : 
-          return /* IMUsed */1047445569;
-      
+      case 510 :
+          return "NotExtended";
+      case 511 :
+          return "NetworkAuthenticationRequired";
+      default:
+        return Pervasives.failwith("TODO: exception or option?");
     }
   } else {
-    return Pervasives.failwith("TODO: exception or option?");
+    if (param < 200) {
+      return Pervasives.failwith("TODO: exception or option?");
+    }
+    switch (param) {
+      case 200 :
+          return "OK";
+      case 201 :
+          return "Created";
+      case 202 :
+          return "Accepted";
+      case 203 :
+          return "NonAuthoritativeInformation";
+      case 204 :
+          return "NoContent";
+      case 205 :
+          return "ResetContent";
+      case 206 :
+          return "PartialContent";
+      case 207 :
+          return "MultiStatus";
+      case 208 :
+          return "AlreadyReported";
+      case 209 :
+      case 210 :
+      case 211 :
+      case 212 :
+      case 213 :
+      case 214 :
+      case 215 :
+      case 216 :
+      case 217 :
+      case 218 :
+      case 219 :
+      case 220 :
+      case 221 :
+      case 222 :
+      case 223 :
+      case 224 :
+      case 225 :
+          return Pervasives.failwith("TODO: exception or option?");
+      case 226 :
+          return "IMUsed";
+      
+    }
   }
 }
 

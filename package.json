@@ -25,18 +25,18 @@
   ],
   "license": "MIT",
   "dependencies": {
-    "@glennsl/rebase": "^0.2.1",
+    "@glennsl/rebase": "^0.2.2",
     "bs-fetch": "github:reasonml-community/bs-fetch#next"
   },
   "devDependencies": {
-    "@glennsl/bs-jest": "^0.4.2",
-    "@glennsl/bs-json": "^2.0.0",
-    "bs-platform": "^3.1.4",
+    "@glennsl/bs-jest": "^0.7.0",
+    "@glennsl/bs-json": "^5.0.2",
+    "bs-platform": "^9.0.2",
     "debug-http": "^1.1.0",
-    "isomorphic-fetch": "^2.2.1",
-    "nock": "^9.3.0"
+    "isomorphic-fetch": "^3.0.0",
+    "nock": "^13.0.11"
   },
   "peerDependencies": {
-    "bs-platform": "^3.1.4"
+    "bs-platform": "^9.0.2"
   }
 }

@@ -9,30 +9,30 @@ var Refetch__Response = require("../src/Refetch__Response.bs.js");
 require('isomorphic-fetch')
 ;
 
-Resync.Future[/* whenResolved */7]((function (prim) {
+Resync.Future.whenResolved((function (prim) {
         console.log(prim);
-        return /* () */0;
-      }), Resync.Future[/* flatMap */9]((function (param) {
-            if (param.tag) {
-              return Resync.Future[/* from */3](param[0][/* reason */1]);
+        
+      }), Resync.Future.flatMap((function (param) {
+            if (param.TAG === /* Ok */0) {
+              return Curry._1(Refetch__Response.text, param._1);
             } else {
-              return Curry._1(Refetch__Response.text, param[1]);
+              return Resync.Future.from(param._0.reason);
             }
-          }), Refetch.fetch(Refetch__Request.payload(/* `Form */[
-                  781815140,
-                  /* :: */[
-                    /* tuple */[
+          }), Refetch.$$fetch(Refetch__Request.payload({
+                  NAME: "Form",
+                  VAL: {
+                    hd: [
                       "foo",
                       "boo"
                     ],
-                    /* :: */[
-                      /* tuple */[
+                    tl: {
+                      hd: [
                         "bar",
                         "far"
                       ],
-                      /* [] */0
-                    ]
-                  ]
-                ], Refetch.request(/* POST */891112544, /* None */0, /* None */0, /* None */0, "http://httpbin.org/post")))));
+                      tl: /* [] */0
+                    }
+                  }
+                }, Refetch.request("POST", undefined, undefined, undefined, "http://httpbin.org/post")))));
 
 /*  Not a pure module */

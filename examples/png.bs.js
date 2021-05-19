@@ -10,25 +10,24 @@ var Refetch__Response = require("../src/Refetch__Response.bs.js");
 require('isomorphic-fetch')
 ;
 
-Resync.Future[/* whenCompleted */6]((function (param) {
-        if (param.tag) {
-          console.log(param[0]);
-          return /* () */0;
-        } else {
-          StreamToBuffer(param[0], (function (_, buffer) {
-                  ConsolePng(buffer, (function (_, string) {
+Resync.Future.whenCompleted((function (stream) {
+        if (stream.TAG === /* Ok */0) {
+          StreamToBuffer(stream._0, (function (param, buffer) {
+                  ConsolePng(buffer, (function (param, string) {
                           console.log(string);
-                          return /* () */0;
+                          
                         }));
-                  return /* () */0;
+                  
                 }));
-          return /* () */0;
+          return ;
         }
-      }), Resync.Future[/* map */8]((function (param) {
-            if (param.tag) {
-              return Pervasives.failwith(param[0][/* reason */1]);
+        console.log(stream._0);
+        
+      }), Resync.Future.map((function (param) {
+            if (param.TAG === /* Ok */0) {
+              return Refetch__Response.body(param._1);
             } else {
-              return Refetch__Response.body(param[1]);
+              return Pervasives.failwith(param._0.reason);
             }
           }), Refetch.get("http://httpbin.org/image/png")));
 

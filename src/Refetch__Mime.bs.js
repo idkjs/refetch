@@ -2,7 +2,7 @@
 
 
 function multipart(boundary) {
-  return "multipart/form-data; boundary=" + (String(boundary) + "");
+  return "multipart/form-data; boundary=" + boundary;
 }
 
 var form = "application/x-www-form-urlencoded";

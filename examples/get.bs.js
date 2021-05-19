@@ -8,14 +8,14 @@ var Refetch__Response = require("../src/Refetch__Response.bs.js");
 require('isomorphic-fetch')
 ;
 
-Resync.Future[/* whenResolved */7]((function (prim) {
+Resync.Future.whenResolved((function (prim) {
         console.log(prim);
-        return /* () */0;
-      }), Resync.Future[/* flatMap */9]((function (param) {
-            if (param.tag) {
-              return Resync.Future[/* from */3]("oops!");
+        
+      }), Resync.Future.flatMap((function (param) {
+            if (param.TAG === /* Ok */0) {
+              return Curry._1(Refetch__Response.text, param._1);
             } else {
-              return Curry._1(Refetch__Response.text, param[1]);
+              return Resync.Future.from("oops!");
             }
           }), Refetch.get("http://httpbin.org/get")));
 

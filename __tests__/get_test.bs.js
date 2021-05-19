@@ -1,6 +1,6 @@
 'use strict';
 
-var Jest = require("@glennsl/bs-jest/src/jest.js");
+var Jest = require("@glennsl/bs-jest/src/jest.bs.js");
 var Nock = require("nock");
 var Curry = require("bs-platform/lib/js/curry.js");
 var Resync = require("../src/Resync.bs.js");
@@ -11,18 +11,18 @@ require('isomorphic-fetch')
 
 Nock.disableNetConnect();
 
-describe("get", (function () {
+Jest.describe("get", (function (param) {
         var scope = Nock("http://example.com");
-        afterAll((function () {
-                scope.restore();
-                return /* () */0;
-              }));
-        return Jest.testAsync(/* None */0, "get", (function (finish) {
+        afterAll(function () {
+              scope.restore();
+              
+            });
+        return Jest.testAsync("get", undefined, (function (finish) {
                       scope.get("/").reply(200, {
                             foo: 42
                           });
-                      return Resync.Future[/* whenResolved */7]((function () {
-                                    return Curry._1(finish, Jest.Expect[/* toBe */2](true, Jest.Expect[/* expect */0](scope.isDone())));
+                      return Resync.Future.whenResolved((function (_r) {
+                                    return Curry._1(finish, Jest.Expect.toBe(true, Jest.Expect.expect(scope.isDone())));
                                   }), Refetch.get("http://example.com"));
                     }));
       }));

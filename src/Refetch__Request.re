@@ -95,7 +95,7 @@ let _encodeMethod =
         | `OtherMethod(string) => Method.other(string)
   );
 
-[@bs.val] external encodeURIComponent : string => string = "";
+[@bs.val] external encodeURIComponent : string => string = "encodeURIComponent";
 
 let _buildUrl = (url, params) => {
   let encodeParam = ((key, value)) =>

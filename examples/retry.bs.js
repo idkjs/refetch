@@ -8,22 +8,21 @@ require('isomorphic-fetch')
 
 function retryGet(n) {
   if (n !== 0) {
-    return Resync.Future[/* flatMap */9]((function (param) {
-                  if (param.tag) {
-                    console.log("Uh, oh, an error occurred. Retrying...");
-                    return retryGet(n - 1 | 0);
-                  } else {
-                    return Resync.Future[/* from */3]("Wat!? It worked?");
+    return Resync.Future.flatMap((function (param) {
+                  if (param.TAG === /* Ok */0) {
+                    return Resync.Future.from("Wat!? It worked?");
                   }
+                  console.log("Uh, oh, an error occurred. Retrying...");
+                  return retryGet(n - 1 | 0);
                 }), Refetch.get("https://httpbin.org/status/400"));
   } else {
-    return Resync.Future[/* from */3]("rety failed");
+    return Resync.Future.from("rety failed");
   }
 }
 
-Resync.Future[/* whenResolved */7]((function (prim) {
+Resync.Future.whenResolved((function (prim) {
         console.log(prim);
-        return /* () */0;
+        
       }), retryGet(3));
 
 exports.retryGet = retryGet;

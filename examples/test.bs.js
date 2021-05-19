@@ -9,105 +9,103 @@ var Refetch__Response = require("../src/Refetch__Response.bs.js");
 require('isomorphic-fetch')
 ;
 
-
-  const debugHttp = require('debug-http');
+const debugHttp = require('debug-http');
   debugHttp();
-
 ;
 
-Resync.Future[/* whenResolved */7]((function (prim) {
+Resync.Future.whenResolved((function (prim) {
         console.log(prim);
-        return /* () */0;
-      }), Resync.Future[/* flatMap */9]((function (param) {
-            if (param.tag) {
-              return Resync.Future[/* from */3](param[0][/* reason */1]);
+        
+      }), Resync.Future.flatMap((function (param) {
+            if (param.TAG === /* Ok */0) {
+              return Curry._1(Refetch__Response.text, param._1);
             } else {
-              return Curry._1(Refetch__Response.text, param[1]);
+              return Resync.Future.from(param._0.reason);
             }
-          }), Refetch.fetch(Refetch__Request.payload(/* `Multipart */[
-                  -1031569716,
-                  /* tuple */[
+          }), Refetch.$$fetch(Refetch__Request.payload({
+                  NAME: "Multipart",
+                  VAL: [
                     "booboo",
-                    /* :: */[
-                      /* tuple */[
-                        /* :: */[
-                          /* `ContentType */[
-                            246273139,
-                            "plain/text"
-                          ],
-                          /* :: */[
-                            /* `ContentDisposition */[
-                              -378039458,
-                              /* tuple */[
-                                /* `Other */[
-                                  -912009552,
-                                  "form-data"
-                                ],
-                                /* :: */[
-                                  /* `Other */[
-                                    -912009552,
-                                    /* tuple */[
+                    {
+                      hd: [
+                        {
+                          hd: {
+                            NAME: "ContentType",
+                            VAL: "plain/text"
+                          },
+                          tl: {
+                            hd: {
+                              NAME: "ContentDisposition",
+                              VAL: [
+                                {
+                                  NAME: "Other",
+                                  VAL: "form-data"
+                                },
+                                {
+                                  hd: {
+                                    NAME: "Other",
+                                    VAL: [
                                       "name",
                                       "field1"
                                     ]
-                                  ],
-                                  /* :: */[
-                                    /* `Filename */[
-                                      -786699545,
-                                      "myimage.png"
-                                    ],
-                                    /* [] */0
-                                  ]
-                                ]
+                                  },
+                                  tl: {
+                                    hd: {
+                                      NAME: "Filename",
+                                      VAL: "myimage.png"
+                                    },
+                                    tl: /* [] */0
+                                  }
+                                }
                               ]
-                            ],
-                            /* [] */0
-                          ]
-                        ],
-                        /* `String */[
-                          -976970511,
-                          "foo"
-                        ]
+                            },
+                            tl: /* [] */0
+                          }
+                        },
+                        {
+                          NAME: "String",
+                          VAL: "foo"
+                        }
                       ],
-                      /* :: */[
-                        /* tuple */[
-                          /* :: */[
-                            /* `ContentType */[
-                              246273139,
-                              "application/json"
-                            ],
-                            /* :: */[
-                              /* `ContentDisposition */[
-                                -378039458,
-                                /* tuple */[
-                                  /* `Other */[
-                                    -912009552,
-                                    "form-data"
-                                  ],
-                                  /* :: */[
-                                    /* `Other */[
-                                      -912009552,
-                                      /* tuple */[
+                      tl: {
+                        hd: [
+                          {
+                            hd: {
+                              NAME: "ContentType",
+                              VAL: "application/json"
+                            },
+                            tl: {
+                              hd: {
+                                NAME: "ContentDisposition",
+                                VAL: [
+                                  {
+                                    NAME: "Other",
+                                    VAL: "form-data"
+                                  },
+                                  {
+                                    hd: {
+                                      NAME: "Other",
+                                      VAL: [
                                         "name",
                                         "field1"
                                       ]
-                                    ],
-                                    /* [] */0
-                                  ]
+                                    },
+                                    tl: /* [] */0
+                                  }
                                 ]
-                              ],
-                              /* [] */0
-                            ]
-                          ],
-                          /* `Json */[
-                            826371656,
-                            null
-                          ]
+                              },
+                              tl: /* [] */0
+                            }
+                          },
+                          {
+                            NAME: "Json",
+                            VAL: null
+                          }
                         ],
-                        /* [] */0
-                      ]
-                    ]
+                        tl: /* [] */0
+                      }
+                    }
                   ]
-                ], Refetch.request(/* POST */891112544, /* None */0, /* None */0, /* None */0, "https://requestb.in/183okup1")))));
+                }, Refetch.request("POST", undefined, undefined, undefined, "https://requestb.in/183okup1")))));
 
 /*  Not a pure module */

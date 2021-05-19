@@ -7,79 +7,70 @@ var Pervasives = require("bs-platform/lib/js/pervasives.js");
 var Refetch__Utils = require("./Refetch__Utils.bs.js");
 
 function _pairifyHeader(h) {
-  var param = h;
-  if (typeof param === "number") {
+  if (typeof h === "string") {
     return Pervasives.failwith("TODO");
-  } else {
-    var variant = param[0];
-    if (variant >= 246273139) {
-      if (variant !== 826042841) {
-        if (variant !== 1022564063) {
-          if (variant >= 246273140) {
-            return Pervasives.failwith("TODO");
-          } else {
-            return /* tuple */[
-                    "Content-Type",
-                    param[1]
-                  ];
-          }
-        } else {
-          return /* tuple */[
-                  "Content-Length",
-                  String(param[1])
-                ];
-        }
-      } else {
-        var scheme = param[1];
-        var value;
-        if (scheme[0] >= -881134847) {
-          value = "Bearer " + (String(scheme[1]) + "");
-        } else {
-          var match = scheme[1];
-          var encoded = Curry._1(Refetch__Utils.btoa, "" + (String(match[0]) + (":" + (String(match[1]) + ""))));
-          value = "Basic " + (String(encoded) + "");
-        }
-        return /* tuple */[
-                "Authorization",
-                value
-              ];
-      }
-    } else if (variant !== -378039458) {
-      if (variant !== 4099528) {
-        return Pervasives.failwith("TODO");
-      } else {
-        var match$1 = param[1];
-        return /* tuple */[
-                match$1[0],
-                match$1[1]
-              ];
-      }
-    } else {
-      var match$2 = param[1];
-      var typ = match$2[0];
-      var typ$1 = typeof typ === "number" ? (
-          typ >= -735835133 ? "attachment" : "inline"
-        ) : typ[1];
-      var value$1 = Rebase.List[/* reduce */3]((function (acc, p) {
-              return "" + (String(acc) + ("; " + (String(p) + "")));
-            }), typ$1, Rebase.List[/* map */0]((function (param) {
-                  if (param[0] >= -786699545) {
-                    return "filename=\"" + (String(param[1]) + "\"");
-                  } else {
-                    var match = param[1];
-                    return "" + (String(match[0]) + ("=\"" + (String(match[1]) + "\"")));
-                  }
-                }), match$2[1]));
-      return /* tuple */[
-              "Content-Disposition",
-              value$1
+  }
+  var variant = h.NAME;
+  if (variant === "ContentDisposition") {
+    var match = h.VAL;
+    var typ = match[0];
+    var typ$1 = typeof typ === "string" ? (
+        typ === "Attachment" ? "attachment" : "inline"
+      ) : typ.VAL;
+    var value = Rebase.List.reduce((function (acc, p) {
+            return "" + acc + "; " + p;
+          }), typ$1, Rebase.List.map((function (param) {
+                if (param.NAME === "Filename") {
+                  return "filename=\"" + param.VAL + "\"";
+                }
+                var match = param.VAL;
+                return "" + match[0] + "=\"" + match[1] + "\"";
+              }), match[1]));
+    return [
+            "Content-Disposition",
+            value
+          ];
+  }
+  if (variant === "Raw") {
+    var match$1 = h.VAL;
+    return [
+            match$1[0],
+            match$1[1]
+          ];
+  }
+  if (variant === "ContentType") {
+    return [
+            "Content-Type",
+            h.VAL
+          ];
+  }
+  if (variant !== "Authorization") {
+    if (variant === "ContentLength") {
+      return [
+              "Content-Length",
+              String(h.VAL)
             ];
+    } else {
+      return Pervasives.failwith("TODO");
     }
   }
+  var scheme = h.VAL;
+  var value$1;
+  if (scheme.NAME === "Bearer") {
+    value$1 = "Bearer " + scheme.VAL;
+  } else {
+    var match$2 = scheme.VAL;
+    var encoded = Curry._1(Refetch__Utils.btoa, "" + match$2[0] + ":" + match$2[1]);
+    value$1 = "Basic " + encoded;
+  }
+  return [
+          "Authorization",
+          value$1
+        ];
 }
 
 function _stringifyPair(param) {
-  return "" + (String(param[0]) + (": " + (String(param[1]) + "")));
+  return "" + param[0] + ": " + param[1];
 }
 
 function _stringifyHeader(header) {
@@ -87,14 +78,14 @@ function _stringifyHeader(header) {
 }
 
 function _encode(headers) {
-  return Js_dict.fromList(Rebase.List[/* map */0](_pairifyHeader, headers));
+  return Js_dict.fromList(Rebase.List.map(_pairifyHeader, headers));
 }
 
-var Cookie = 0;
+var Cookie;
 
-var Mime = 0;
+var Mime;
 
-var Utils = 0;
+var Utils;
 
 exports.Cookie = Cookie;
 exports.Mime = Mime;
@@ -103,4 +94,4 @@ exports._pairifyHeader = _pairifyHeader;
 exports._stringifyPair = _stringifyPair;
 exports._stringifyHeader = _stringifyHeader;
 exports._encode = _encode;
-/* Js_dict Not a pure module */
+/* Refetch__Utils Not a pure module */
